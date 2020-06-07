@@ -10,7 +10,6 @@ const toast = {
             position: 'bottomRight',
             onClosing: function() {
                 console.log("callback fechou!");
-                // this.$router.push({ name: 'login', query: { redirect: '/path' } });
             }
         });
     },
@@ -21,7 +20,6 @@ const toast = {
             position: 'bottomRight',
             onClosing: function() {
                 console.log("callback fechou!");
-                // this.$router.push({ name: 'login', query: { redirect: '/path' } });
             }
         });
     },
@@ -34,7 +32,7 @@ const toast = {
         });
     },
 
-    loginsuccess: (message, title = 'Registration Successful! Check your email to verify account') => {
+    loginsuccess: (message, title = 'Logded in Successfully!') => {
         return iZtoast.success({
             title: title,
             message: message,

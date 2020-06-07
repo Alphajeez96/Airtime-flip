@@ -55,6 +55,8 @@ export default {
                   if (response) {
                     toast.loginsuccess(response.data);
                     this.$router.push({ name: '#', query: { redirect: '/path' } });
+
+                    //TODO: Validate login page input text to accept email and number only
                 }
 
                   })
