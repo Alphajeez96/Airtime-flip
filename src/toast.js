@@ -42,7 +42,7 @@ const toast = {
         });
     },
 
-    loginsuccess: (message, title = 'Logded in Successfully!') => {
+    loginsuccess: (message, title = 'Logged in Successfully!') => {
         return iZtoast.success({
             title: title,
             message: message,

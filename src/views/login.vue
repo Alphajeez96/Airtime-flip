@@ -1,5 +1,5 @@
 <template>
-  <div class="login">
+  <div class="login" style="background-color: rgb(36, 17, 106);">
     <login />
   </div>
 </template>
