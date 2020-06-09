@@ -2,7 +2,7 @@
     <div class="container">
         <div class="card" style="width: 28rem" >
            
-
+<form  @submit.prevent="loginUser">
                 <div class="row">
                     <div class="col">
                         <div class="form-group">
@@ -23,8 +23,8 @@
                     </div>
                 </div>
   
-                <button type="submit" @click.prevent="login()" class="btn btn-success btn-block btn-md">Log In</button>
-             
+                <button type="submit" class="btn btn-success btn-block btn-md">Log In</button>
+</form>
         </div>    
     </div>
 </template>
@@ -38,13 +38,15 @@ export default {
    name: 'login',
    data() {
        return {
+           login:{
            identity: '',
            password: '',
+             }
         
        }
    },
    methods: {
-       login(){
+    async loginUser(){
           return axios.post('https://test.airtimeflip.com/api/v1/login', {
                 identity: this.identity,
                 password: this.password,
@@ -53,9 +55,16 @@ export default {
         .then(response => {
                console.log(response.data);
                   if (response) {
-                    toast.loginsuccess(response.data);
-                    this.$router.push({ name: '#', query: { redirect: '/path' } });
-
+                    
+                
+                    console.log('this is the token'+ response.data.payload.access_token);
+                    let token = response.data.payload.access_token
+                   localStorage.setItem("jwt", token);
+                   
+                    if(token){
+                        toast.loginsuccess(response.data);
+                        this.$router.push("/home");
+                    }  
                     //TODO: Validate login page input text to accept email and number only
                 }
 

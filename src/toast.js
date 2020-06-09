@@ -1,6 +1,6 @@
 import 'izitoast/dist/css/iziToast.min.css'
 import iZtoast from 'izitoast'
-import router from '../src/router/index'
+
 
 const toast = {
     error: (message, title = '') => {
@@ -14,6 +14,16 @@ const toast = {
         });
     },
     loginerror: (message, title = '') => {
+        return iZtoast.error({
+            title: title,
+            message: message,
+            position: 'bottomRight',
+            onClosing: function() {
+                console.log("callback fechou!");
+            }
+        });
+    },
+    regerror: (message, title = 'Something Went Wrong') => {
         return iZtoast.error({
             title: title,
             message: message,

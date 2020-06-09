@@ -6,11 +6,15 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 import swal from 'sweetalert';
+import VueCookie from 'vue-cookie'
 
+const base = axios.create({
+    baseURL: "https://test.airtimeflip.com/api/v1"
+});
 
-
+Vue.prototype.$http = base;
 Vue.config.productionTip = false
-Vue.use(VueAxios, axios, sweetAlert)
+Vue.use(VueAxios, axios, sweetAlert, VueCookie)
 
 new Vue({
     router,
